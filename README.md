@@ -3,7 +3,7 @@ const int LED = 5;
 const int BUZZER = 21;
 const int PIR = 2;
 
-bool motionDetected = false;  // flag to remember motion detection
+bool motionDetected = false;  // Flag to remember motion detection
 
 void setup() {
   Serial.begin(115200);
@@ -21,21 +21,21 @@ void loop() {
   Serial.print(LDRval);
   Serial.print(" | PIR: ");
   Serial.println(pirState);
-// Only Sets or Resets the Flag
-  if(LDRval <= 400) {  // It is dark
-    if(pirState == HIGH) {
-      motionDetected = true;  // motion detected at night
+
+  // Only sets or resets the flag
+  if (LDRval <= 400) {  // It is dark
+    if (pirState == HIGH) {
+      motionDetected = true;  // Motion detected at night
     }
-  } 
-  else {
+  } else {
     // It is day now, reset the flag and turn everything OFF
     motionDetected = false;
     digitalWrite(LED, LOW);
     noTone(BUZZER);
   }
 
-  // Acts Based on the Flag
-  if(motionDetected) {
+  // Acts based on the flag
+  if (motionDetected) {
     digitalWrite(LED, HIGH);
     tone(BUZZER, 1000);
   }
