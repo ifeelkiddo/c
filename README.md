@@ -1,4 +1,4 @@
-''' c
+
 const int LDR = 4;
 const int LED = 5;
 const int BUZZER = 21;
@@ -43,4 +43,3 @@ void loop() {
 
   delay(100);
 }
-'''
